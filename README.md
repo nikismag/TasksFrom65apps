@@ -14,10 +14,10 @@
 4. добавляем в новую ветку пустой Activity и изменения в Readme
 5. коммитим
 
-![commit] (img/commit.jpg)
+![commit](img/commit.jpg)
 
 6. пушим на GitHub
 
-![push] (img/push.jpg)
+![push](img/push.jpg)
 
 7. разрешаем доступ соавторам
