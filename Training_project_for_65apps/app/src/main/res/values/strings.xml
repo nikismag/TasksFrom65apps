@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Training_project_for_65apps</string>
+    <string name="contactList">Contact list</string>
+    <string name="contactDetails">Contact details</string>
 </resources>
