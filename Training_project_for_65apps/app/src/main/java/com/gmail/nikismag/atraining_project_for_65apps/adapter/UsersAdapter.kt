@@ -1,20 +1,14 @@
 package com.gmail.nikismag.atraining_project_for_65apps.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.nikismag.atraining_project_for_65apps.databinding.ItemUserBinding
 import com.gmail.nikismag.atraining_project_for_65apps.model.User
 
-interface UserActionListener{
-
-    fun onUserDetails(user: User)
-}
-
 class UsersAdapter(
-    private val actionListener: UserActionListener
-) : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(), View.OnClickListener{
+    private val onUserClicked: (User) -> Unit
+) : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
     var users: List<User> = emptyList()
         set(newValue) {
@@ -25,32 +19,28 @@ class UsersAdapter(
     override fun getItemCount(): Int = users.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemUserBinding.inflate(inflater, parent, false)
-
-        binding.root.setOnClickListener(this)
-
-        return UsersViewHolder(binding)
-    }
-    override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
-        val user = users[position]
-        with(holder.binding) {
-            holder.itemView.tag = user
-            avatar.tag = user
-
-            textName.text = user.name
-            textPhone.text = user.phone
-            avatar.setImageResource(user.photo)
+        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return UsersViewHolder(binding).apply {
+            itemView.setOnClickListener {
+                if (bindingAdapterPosition != RecyclerView.NO_POSITION) {
+                    onUserClicked(users[bindingAdapterPosition])
+                }
+            }
         }
     }
 
-    class UsersViewHolder(
-        val binding: ItemUserBinding
-    ) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onClick(v: View) {
-        val user = v.tag as User
-        actionListener.onUserDetails(user)
+    override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
+        holder.bind(users[position])
     }
 
+    class UsersViewHolder(
+        private val binding: ItemUserBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(user: User) = with(binding) {
+            tvName.text = user.name
+            tvPhoneFirst.text = user.phoneFirst
+            ivPhoto.setImageResource(user.photo)
+        }
+    }
 }

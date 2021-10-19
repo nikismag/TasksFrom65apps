@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Training_project_for_65apps</string>
-    <string name="contactList">Contact list</string>
-    <string name="contactDetails">Contact details</string>
+    <string name="contact_list">Contact list</string>
+    <string name="contact_details">Contact details</string>
+    <string name="photo">Photo</string>
 </resources>

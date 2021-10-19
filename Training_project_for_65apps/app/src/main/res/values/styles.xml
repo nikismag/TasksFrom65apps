@@ -1,26 +1,32 @@
 <resources>
+
     <style name="Widget.Theme.Training_project_for_65apps.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/golyboi</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
-    <style name="phone_email">
+
+    <style name="PhoneEmailStyle">
         <item name="android:textStyle">bold</item>
-        <item name="android:shadowColor">@color/Dark_orange</item>
+        <item name="android:shadowColor">@color/dark_orange</item>
         <item name="android:shadowDx">3</item>
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">3</item>
         <item name="android:textColor">@color/orange</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <style name="name">
+
+    <style name="NameStyle">
         <item name="android:textSize">30sp</item>
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">center|start</item>
-        <item name="android:shadowColor">@color/Dark_orange</item>
+        <item name="android:shadowColor">@color/dark_orange</item>
         <item name="android:shadowDx">3</item>
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">3</item>
         <item name="android:textColor">@color/orange</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RecyclerViewOverlayTheme" parent="Theme.Training_project_for_65apps">
+        <item name="android:colorEdgeEffect">@color/dark_blue</item>
     </style>
 </resources>

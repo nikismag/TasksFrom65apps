@@ -7,56 +7,47 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gmail.nikismag.atraining_project_for_65apps.R
-import com.gmail.nikismag.atraining_project_for_65apps.adapter.UserActionListener
 import com.gmail.nikismag.atraining_project_for_65apps.adapter.UsersAdapter
 import com.gmail.nikismag.atraining_project_for_65apps.app.App
-import com.gmail.nikismag.atraining_project_for_65apps.contract.CustomTitle
 import com.gmail.nikismag.atraining_project_for_65apps.contract.contract
 import com.gmail.nikismag.atraining_project_for_65apps.databinding.FragmentUserListBinding
-import com.gmail.nikismag.atraining_project_for_65apps.model.User
-import com.gmail.nikismag.atraining_project_for_65apps.model.UsersListener
 import com.gmail.nikismag.atraining_project_for_65apps.model.UsersService
 
-class UsersListFragment : Fragment(), CustomTitle {
+class UsersListFragment : Fragment() {
 
-    private lateinit var binding: FragmentUserListBinding
-    private lateinit var adapter: UsersAdapter
+    private var binding: FragmentUserListBinding? = null
+    private var adapter: UsersAdapter? = null
 
     private val usersService: UsersService
         get() = (requireActivity().applicationContext as App).usersService
 
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         binding = FragmentUserListBinding.inflate(inflater, container, false)
 
-        adapter = UsersAdapter(object : UserActionListener {
-            override fun onUserDetails(user: User) {
-                contract().launchUserDetailsScreen(user)
-            }
-        })
-
-        val layoutManager = LinearLayoutManager(requireActivity())
-        binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = adapter
-
-        usersService.addListener(usersListener)
-
-        return binding.root
+        return binding!!.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        usersService.removeListener(usersListener)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        activity?.setTitle(R.string.contact_list)
+
+        adapter = UsersAdapter { user ->
+            contract().launchUserDetailsScreen(user)
+        }
+
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
+        binding?.recyclerView?.adapter = adapter
+
+        adapter?.users = usersService.getList()
     }
 
-    private val usersListener: UsersListener = {
-        adapter.users = it
+    override fun onDestroyView() {
+        binding = null
+        adapter = null
+        super.onDestroyView()
     }
-
-    override fun getTitleRes(): Int = R.string.contactList
 }

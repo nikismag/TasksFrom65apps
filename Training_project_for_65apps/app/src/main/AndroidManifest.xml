@@ -3,13 +3,13 @@
     package="com.gmail.nikismag.atraining_project_for_65apps">
 
     <application
-        android:allowBackup="true"
+        android:name=".app.App"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Training_project_for_65apps"
-        android:name=".app.App">
+        android:theme="@style/Theme.Training_project_for_65apps">
         <activity
             android:name=".MainActivity"
             android:exported="true">

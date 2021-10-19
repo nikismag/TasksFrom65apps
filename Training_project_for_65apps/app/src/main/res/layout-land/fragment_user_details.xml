@@ -1,138 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-
     <ImageView
-        android:id="@+id/avatar_details"
+        android:id="@+id/ivPhoto"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:src="@drawable/egor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/text_name_details"
-        style="@style/name"
+        android:id="@+id/tvName"
+        style="@style/NameStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="10dp"
-        android:text="Nikita Smagin"
-        app:layout_constraintBottom_toBottomOf="@+id/avatar_details"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatar_details"
-        app:layout_constraintTop_toTopOf="@+id/avatar_details"
-        tools:targetApi="o" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+        app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="@tools:sample/full_names" />
 
     <TextView
-        android:id="@+id/text_phone1_details"
-        style="@style/phone_email"
+        android:id="@+id/tvPhoneFirst"
+        style="@style/PhoneEmailStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="+7(919)910-66-02"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
         app:layout_constraintHorizontal_bias="0.20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name_details" />
+        app:layout_constraintStart_toStartOf="@+id/ivPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        tools:text="@tools:sample/us_phones" />
 
     <TextView
-        android:id="@+id/text_phone2_details"
-        style="@style/phone_email"
+        android:id="@+id/tvPhoneSecond"
+        style="@style/PhoneEmailStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="+7(919)910-66-02"
-        app:layout_constraintBottom_toBottomOf="@+id/text_phone1_details"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_phone1_details"
-        app:layout_constraintTop_toTopOf="@+id/text_phone1_details" />
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintHorizontal_bias="0.80"
+        app:layout_constraintStart_toStartOf="@+id/ivPhoto"
+        app:layout_constraintTop_toTopOf="@+id/tvPhoneFirst"
+        tools:text="@tools:sample/us_phones" />
 
     <TextView
-        android:id="@+id/text_phone3_details"
-        style="@style/phone_email"
+        android:id="@+id/tvEmailFirst"
+        style="@style/PhoneEmailStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/tvPhoneFirst"
+        app:layout_constraintStart_toStartOf="@+id/tvPhoneFirst"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneFirst"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/tvEmailSecond"
+        style="@style/PhoneEmailStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/tvPhoneSecond"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="@+id/tvPhoneSecond"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneSecond"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/tvCompany"
+        style="@style/PhoneEmailStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_phone2_details" />
-
-    <TextView
-        android:id="@+id/text_email1_details"
-        style="@style/phone_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="nikisa132@gmail.com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_phone3_details" />
-
-    <TextView
-        android:id="@+id/text_email2_details"
-        style="@style/phone_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="nikisa132@gmail.com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toEndOf="@+id/text_email1_details"
-        app:layout_constraintTop_toTopOf="@+id/text_email1_details" />
-
-    <TextView
-        android:id="@+id/text_email3_details"
-        style="@style/phone_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_email2_details" />
-
-    <TextView
-        android:id="@+id/text_info_details"
-        style="@style/phone_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:text="student of 65apps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_email3_details"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailSecond"
+        tools:text="@tools:sample/cities" />
 </androidx.constraintlayout.widget.ConstraintLayout>
