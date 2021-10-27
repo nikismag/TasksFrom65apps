@@ -8,7 +8,7 @@ ________________
 
 **Разработчик:** Смагин Никита (nikismag@gmail.com)
 
-**Используемый программы:** Android Studio, git-client Fork
+**Используемые программы:** Android Studio, git-client Fork
 
 **Телефон для тестирования:** Virtual Device Pixel 4
 
