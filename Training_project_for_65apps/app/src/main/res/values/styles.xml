@@ -1,9 +1,5 @@
 <resources>
 
-    <style name="Widget.Theme.Training_project_for_65apps.ButtonBar.Fullscreen" parent="">
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
-    </style>
-
     <style name="PhoneEmailStyle">
         <item name="android:textStyle">bold</item>
         <item name="android:shadowColor">@color/dark_orange</item>
