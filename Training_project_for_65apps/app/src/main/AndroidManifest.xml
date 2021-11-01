@@ -3,7 +3,7 @@
     package="com.gmail.nikismag.atraining_project_for_65apps">
 
     <application
-        android:name=".app.App"
+        android:name=".data.App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,14 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Training_project_for_65apps">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentations.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".data.UsersService"
+            android:enabled="true">
+        </service>
     </application>
 
 </manifest>
