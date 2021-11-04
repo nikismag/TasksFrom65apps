@@ -32,3 +32,7 @@ ________________
 
 <img src="img/User3.png" width="400">
 <img src="img/User4.png" width="400">
+
+### демонстрация работы приложения
+
+<img src="img/User_gif.gif" width="400">
