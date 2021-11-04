@@ -1,10 +1,10 @@
-package com.gmail.nikismag.atraining_project_for_65apps.adapter
+package com.gmail.nikismag.atraining_project_for_65apps.presentation.screens.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gmail.nikismag.atraining_project_for_65apps.data.model.User
 import com.gmail.nikismag.atraining_project_for_65apps.databinding.ItemUserBinding
-import com.gmail.nikismag.atraining_project_for_65apps.model.User
 
 class UsersAdapter(
     private val onUserClicked: (User) -> Unit
@@ -33,7 +33,7 @@ class UsersAdapter(
         holder.bind(users[position])
     }
 
-    class UsersViewHolder(
+    inner class UsersViewHolder(
         private val binding: ItemUserBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
