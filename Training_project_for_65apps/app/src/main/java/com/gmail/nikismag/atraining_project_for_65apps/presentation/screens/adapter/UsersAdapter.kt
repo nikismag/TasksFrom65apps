@@ -2,9 +2,28 @@ package com.gmail.nikismag.atraining_project_for_65apps.presentation.screens.ada
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.nikismag.atraining_project_for_65apps.data.model.User
 import com.gmail.nikismag.atraining_project_for_65apps.databinding.ItemUserBinding
+
+class UsersDiffCallback(
+    private val oldList: List<User>,
+    private val newList: List<User>
+
+) : DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition].id == newList[newItemPosition].id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition] == newList[newItemPosition]
+    }
+}
 
 class UsersAdapter(
     private val onUserClicked: (User) -> Unit
@@ -12,8 +31,10 @@ class UsersAdapter(
 
     var users: List<User> = emptyList()
         set(newValue) {
+            val diffCallback = UsersDiffCallback(field, newValue)
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
             field = newValue
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     override fun getItemCount(): Int = users.size
